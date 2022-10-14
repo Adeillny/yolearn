@@ -11,7 +11,7 @@ $database = 'zqlewxrs';
 $host = 'mouse.db.elephantsql.com';
 
 //Criação da conexão: 
-$mysqli = new pg_connect($host, $usuario, $senha, $database);
+$mysqli = pg_connect($host, $usuario, $senha, $database);
 
 // Caso haja algum erro a conexão irá 'morrer', irá nos mostrar uma mensagem 
 // e informar qual foi o erro:
