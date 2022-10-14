@@ -1,7 +1,8 @@
 <?php
 // Usuário e senha padrões do USBWebserver:
 $usuario = 'zqlewxrs';
-$senha = 'yARTYmme4tFpKqPdD50pflUcTtiW9hrD'; 
+$senha = 'yARTYmme4tFpKqPdD50pflUcTtiW9hrD';
+$port = '5432'; 
 
 // Nome do banco de dados:
 $database = 'zqlewxrs';
@@ -11,11 +12,13 @@ $database = 'zqlewxrs';
 $host = 'mouse.db.elephantsql.com';
 
 //Criação da conexão: 
-$mysqli = pg_connect($host, $usuario, $senha, $database);
+//$mysqli =  pg_connect($host, $usuario, $senha, $database);
+$connection_string = "host={$host} port={$port} dbname={$database} user={$usuario} password={$senha} ";
+$conexao = pg_connect($connection_string);
 
 // Caso haja algum erro a conexão irá 'morrer', irá nos mostrar uma mensagem 
 // e informar qual foi o erro:
-if($mysqli->error) {
-    die("Falha ao conectar ao banco de dados: " . $mysqli->error);
+if($conexao->error) {
+    die("Falha ao conectar ao banco de dados: " . $conexao->error);
 }
 ?>
